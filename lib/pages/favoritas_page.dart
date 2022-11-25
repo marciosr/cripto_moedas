@@ -1,7 +1,7 @@
 import 'package:cripto_moedas/repositories/favoritas_repository.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
+import 'package:intl/intl.dart';
 import '../widgets/moeda_card.dart';
 
 class FavoritasPage extends StatefulWidget {
