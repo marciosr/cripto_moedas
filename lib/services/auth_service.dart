@@ -1,5 +1,15 @@
-import 'package:firebase_auth/firebase_auth.dart';
+//import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+
+import 'dart:convert';
+import 'dart:io';
+import 'dart:typed_data';
+
+import 'package:firebase_dart/auth.dart';
+import 'package:firebase_dart/core.dart';
+import 'package:firebase_dart/database.dart';
+import 'package:firebase_dart/implementation/pure_dart.dart';
+import 'package:firebase_dart/storage.dart';
 
 class AuthException implements Exception {
   String message;
@@ -7,11 +17,12 @@ class AuthException implements Exception {
 }
 
 class AuthService extends ChangeNotifier {
-  final FirebaseAuth _auth = FirebaseAuth.instance;
+  late final FirebaseAuth _auth; // = FirebaseAuth.instance;
   User? usuario;
   bool isLoading = true;
 
-  AuthService() {
+  AuthService(FirebaseApp app) {
+    _auth = FirebaseAuth.instanceFor(app: app);
     _authCheck();
   }
 
