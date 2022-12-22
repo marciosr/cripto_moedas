@@ -55,6 +55,7 @@ String get _historico => '''
 		data_operacao INT,
 		tipo_operacao TEXT,
 		moeda TEXT,
+		sigla TEXT,
 		valor REAL,
 		quantidade TEXT
 	);
