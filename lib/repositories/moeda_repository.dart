@@ -23,7 +23,7 @@ class MoedaRepository {
         sigla: 'LTC',
         preco: 669.93),
     Moeda(
-        icone: 'images/usdc.png',
+        icone: 'images/usdcoin.png',
         nome: 'USDC Coin',
         sigla: 'USDC',
         preco: 5.02),
