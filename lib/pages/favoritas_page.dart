@@ -25,7 +25,7 @@ class _FavoritasPageState extends State<FavoritasPage> {
             return favoritas.lista.isEmpty
                 ? ListTile(
                     leading: Icon(Icons.star),
-                    title: Text('Ainda não há moedas favoritos'),
+                    title: Text('Ainda não há moedas favoritas'),
                   )
                 : ListView.builder(
                     itemCount: favoritas.lista.length,

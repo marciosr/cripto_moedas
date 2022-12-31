@@ -55,7 +55,7 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyCXY8a-M6KwLBVmwGOZFBb3BtTz63_fGXw',
-    appId: '1:831986672203:android:c69537bb39ee913440e3ce',
+    appId: '1:831986672203:android:820a5021be8f76d440e3ce',
     messagingSenderId: '831986672203',
     projectId: 'cripto-firebase-372921',
     storageBucket: 'cripto-firebase-372921.appspot.com',
@@ -67,8 +67,7 @@ class DefaultFirebaseOptions {
     messagingSenderId: '831986672203',
     projectId: 'cripto-firebase-372921',
     storageBucket: 'cripto-firebase-372921.appspot.com',
-    iosClientId:
-        '831986672203-00l5ic2m9q81cqpuh1aochlvvmhj8u8h.apps.googleusercontent.com',
+    iosClientId: '831986672203-00l5ic2m9q81cqpuh1aochlvvmhj8u8h.apps.googleusercontent.com',
     iosBundleId: 'com.example.criptoMoedas',
   );
 
@@ -78,8 +77,7 @@ class DefaultFirebaseOptions {
     messagingSenderId: '831986672203',
     projectId: 'cripto-firebase-372921',
     storageBucket: 'cripto-firebase-372921.appspot.com',
-    iosClientId:
-        '831986672203-00l5ic2m9q81cqpuh1aochlvvmhj8u8h.apps.googleusercontent.com',
+    iosClientId: '831986672203-00l5ic2m9q81cqpuh1aochlvvmhj8u8h.apps.googleusercontent.com',
     iosBundleId: 'com.example.criptoMoedas',
   );
 }

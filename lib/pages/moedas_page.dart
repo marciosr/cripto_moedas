@@ -16,7 +16,7 @@ class MoedasPage extends StatefulWidget {
 }
 
 class _MoedasPageState extends State<MoedasPage> {
-  final tabela = MoedaRepository.tabela;
+  late List<Moeda> tabela;
 
   // Permite escolher o formato da moeda utilizando o pacote intl.dart
   //NumberFormat real = NumberFormat.currency(locale: 'pt_BR', name: 'R\$');
@@ -25,6 +25,7 @@ class _MoedasPageState extends State<MoedasPage> {
 
   List<Moeda> selecionadas = [];
   late FavoritasRepository favoritas;
+  late MoedaRepository moedas;
 
   // Lê o formato da moeda armazenado no AppSettings
   readMoedaFormat() {
@@ -104,8 +105,9 @@ class _MoedasPageState extends State<MoedasPage> {
   @override
   Widget build(BuildContext context) {
     favoritas = Provider.of<FavoritasRepository>(context);
-    // favoritas = context.watch<FavoritasRepository>();
-
+    moedas = Provider.of<MoedaRepository>(context);
+    // favoritas = context.watch<FavoritasRepository>(); -> outro modo de fazer.
+    tabela = moedas.tabela;
     readMoedaFormat();
 
     return Scaffold(
@@ -122,7 +124,9 @@ class _MoedasPageState extends State<MoedasPage> {
                       child: const Icon(Icons.check),
                     )
                   : SizedBox(
-                      child: Image.asset(tabela[moeda].icone),
+                      // Troca o método asset por network pois a imagem virá
+                      // da internet e não mais do sistema de arquivos local.
+                      child: Image.network(tabela[moeda].icone),
                       width: 40,
                     ),
               title: Row(
