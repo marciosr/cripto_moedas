@@ -17,8 +17,8 @@ import 'configs/hive_config.dart';
 import 'package:sqflite/sqflite.dart';
 
 // Firebase dart
-import 'package:firebase_dart/core.dart';
-import 'package:firebase_dart/implementation/pure_dart.dart';
+// import 'package:firebase_dart/core.dart';
+// import 'package:firebase_dart/implementation/pure_dart.dart';
 //import 'firebase_options.dart';
 import 'dart:io' show Platform;
 
@@ -30,27 +30,6 @@ void main() async {
     sqfliteFfiInit();
   }
 
-  FirebaseDart.setup();
-  //sqfliteFfiInit();
-
-  const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyCXY8a-M6KwLBVmwGOZFBb3BtTz63_fGXw',
-    appId: '1:831986672203:android:c69537bb39ee913440e3ce',
-    messagingSenderId: '831986672203',
-    projectId: 'cripto-firebase-372921',
-    storageBucket: 'cripto-firebase-372921.appspot.com',
-  );
-
-  const FirebaseOptions linux = FirebaseOptions(
-    apiKey: 'AIzaSyCXY8a-M6KwLBVmwGOZFBb3BtTz63_fGXw',
-    appId: '1:831986672203:android:c69537bb39ee913440e3ce',
-    messagingSenderId: '831986672203',
-    projectId: 'cripto-firebase-372921',
-    storageBucket: 'cripto-firebase-372921.appspot.com',
-  );
-
-  var app = await Firebase.initializeApp(options: android);
-
   databaseFactory = databaseFactoryFfi;
 
   await HiveConfig.start();
@@ -58,18 +37,18 @@ void main() async {
   runApp(
     MultiProvider(
       providers: [
-        ChangeNotifierProvider(create: (context) => AuthService(app)),
+        //ChangeNotifierProvider(create: (context) => AuthService(app)),
         ChangeNotifierProvider(create: (context) => MoedaRepository()),
         ChangeNotifierProvider(
             create: (context) => ContaRepository(
                   moedas: context.read<MoedaRepository>(),
                 )),
         ChangeNotifierProvider(create: (context) => AppSettings()),
-        ChangeNotifierProvider(
-            create: (context) => FavoritasRepository(
-                  auth: context.read<AuthService>(),
-                  moedas: context.read<MoedaRepository>(),
-                )),
+        // ChangeNotifierProvider(
+        //     create: (context) => FavoritasRepository(
+        //           //auth: context.read<AuthService>(),
+        //           moedas: context.read<MoedaRepository>(),
+        //         )),
       ],
       child: const MeuAplicativo(),
     ),

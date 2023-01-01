@@ -3,7 +3,7 @@ import 'package:cripto_moedas/pages/moedas_page.dart';
 
 import 'carteira_page.dart';
 import 'configuracoes_page.dart';
-import 'favoritas_page.dart';
+//import 'favoritas_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -34,12 +34,12 @@ class _HomePageState extends State<HomePage> {
       body: PageView(
         controller: pc,
         // ignore: sort_child_properties_last
-        children: [
+        children: const [
           // ignore: prefer_const_constructors
-          const MoedasPage(),
-          const FavoritasPage(),
-          const CarteiraPage(),
-          const ConfiguracoesPage(),
+          MoedasPage(),
+          //const FavoritasPage(),
+          CarteiraPage(),
+          ConfiguracoesPage(),
         ],
         onPageChanged: setPaginaAtual,
       ),
@@ -49,8 +49,8 @@ class _HomePageState extends State<HomePage> {
         // ignore: prefer_const_literals_to_create_immutables
         items: [
           const BottomNavigationBarItem(icon: Icon(Icons.list), label: 'Todas'),
-          const BottomNavigationBarItem(
-              icon: Icon(Icons.favorite), label: 'Favoritas'),
+          //const BottomNavigationBarItem(
+          //icon: Icon(Icons.favorite), label: 'Favoritas'),
           const BottomNavigationBarItem(
               icon: Icon(Icons.account_balance_wallet), label: 'Carteira'),
           const BottomNavigationBarItem(

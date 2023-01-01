@@ -94,9 +94,9 @@ class _MoedaCardState extends State<MoedaCard> {
                     child: ListTile(
                       title: const Text('Remover das Favoritas'),
                       onTap: () {
-                        Navigator.pop(context);
-                        Provider.of<FavoritasRepository>(context, listen: false)
-                            .remove(widget.moeda);
+                        // Navigator.pop(context);
+                        // Provider.of<FavoritasRepository>(context, listen: false)
+                        //     .remove(widget.moeda);
                       },
                     ),
                   ),
