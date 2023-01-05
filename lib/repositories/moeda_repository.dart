@@ -48,19 +48,27 @@ class MoedaRepository extends ChangeNotifier {
             final preco = nova['latest_price'];
             final timestamp = DateTime.parse(preco['timestamp']);
 
-            batch.update('moedas', {
-              'preco': moeda['latest'],
-              'timestamp': timestamp.microsecondsSinceEpoch,
-              'mudancaHora': preco['percent_change']['hour'].toString(),
-              'mudancaDia': preco['percent_change']['day'].toString(),
-              'mudancaSemana': preco['percent_change']['week'].toString(),
-              'mudancaMes': preco['percent_change']['month'].toString(),
-              'mudancaAno': preco['percent_change']['year'].toString(),
-              'mudancaPeriodoTotal': preco['percent_change']['all'].toString(),
-            });
+            batch.update(
+              'moedas',
+              {
+                'preco': moeda['latest'],
+                'timestamp': timestamp.microsecondsSinceEpoch,
+                'mudancaHora': preco['percent_change']['hour'].toString(),
+                'mudancaDia': preco['percent_change']['day'].toString(),
+                'mudancaSemana': preco['percent_change']['week'].toString(),
+                'mudancaMes': preco['percent_change']['month'].toString(),
+                'mudancaAno': preco['percent_change']['year'].toString(),
+                'mudancaPeriodoTotal':
+                    preco['percent_change']['all'].toString(),
+              },
+              where: 'baseId = ?',
+              whereArgs: [atual.baseId],
+            );
           }
         });
       });
+      await batch.commit(noResult: true);
+      await _readMoedasTable();
     }
   }
 
